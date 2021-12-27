@@ -650,10 +650,17 @@ nav {
   font-weight: 500;
   line-height: 31.2px;
   color: #0C0D0C;
-  padding: 13px 60px 13px 21px;
+  padding: 13px 60px 13px 10px;
   outline: none;
   border-radius: 2px;
   border: 1px solid #000000;
+  text-align: center;
+}
+
+.input-count-coffee-product::-webkit-outer-spin-button,
+.input-count-coffee-product::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
 }
 
 .count-increment,

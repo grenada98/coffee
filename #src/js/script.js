@@ -90,7 +90,9 @@ $(document).ready(function(){
             const data = this.dataset.name;
             console.log(basketCount.textContent);
             basketCountValue = basketCountValue + +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value
-            basketCount.textContent = +basketCount.textContent + basketCountValue;
+            if(document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value>0){
+                basketCount.textContent = +basketCount.textContent + basketCountValue;
+            }
             console.log("basketCountValue "+ basketCountValue);
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = 0;
             if(basketCountValue>0){
@@ -117,6 +119,11 @@ $(document).ready(function(){
             }
             else{
 
+            }
+        })})
+        inputCount.forEach(function (el){el.addEventListener('click', function(){
+            if(this.value == 0){
+                this.value = "";
             }
         })})
         basket.addEventListener("click", function(){
