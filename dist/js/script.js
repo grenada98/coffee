@@ -64,12 +64,17 @@ $(document).ready(function(){
                 },
             ]
           })
+        const basket =document.querySelector(".icon-cart");
+        let basketCountValue = 0;
+        const basketSubmenuWrapper = document.querySelector(".basket-submenu-wrapper");
+        const basketSubmenu = document.querySelector(".basket-submenu");
         const inputSearch = document.querySelector(".header-input-search");
         const linkInputSearch = document.querySelector(".link-search");
         const buttonAdd = Array.from(document.getElementsByClassName("button-coffee-product-order"));
         const basketCount =document.querySelector(".basket-count");
         const addField = Array.from(document.getElementsByClassName("count-increment"));
         const disField = Array.from(document.getElementsByClassName("count-dicrement"));
+        const inputCount = Array.from(document.getElementsByClassName("input-count-coffee-product"));
         addField.forEach(function(el) {el.addEventListener('click', function (){
             const data = this.dataset.name;
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value + 1;
@@ -84,12 +89,45 @@ $(document).ready(function(){
         buttonAdd.forEach(function (el){el.addEventListener('click', function(){
             const data = this.dataset.name;
             console.log(basketCount.textContent);
-            basketCount.textContent = +basketCount.textContent + +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value;
+            basketCountValue = basketCountValue + +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value
+            basketCount.textContent = +basketCount.textContent + basketCountValue;
+            console.log("basketCountValue "+ basketCountValue);
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = 0;
+            if(basketCountValue>0){
+                basketSubmenu.textContent = `В корзине ${basketCountValue} мешков с какао-бобами`;
+                
+            }
+            else{
+                basketSubmenu.textContent = `В корзине пусто!`;
+            }
         })})
+        inputCount.forEach(function (el){el.addEventListener('keydown', function(e){
+            if(e.keyCode===13){
+                basketCountValue = basketCountValue + +this.value;
+                this.value = 0;
+                this.blur();
+                basketCount.textContent = basketCountValue;
+                if(basketCountValue>0){
+                    basketSubmenu.textContent = `В корзине ${basketCountValue} мешков с какао-бобами`;
+                    
+                }
+                else{
+                    basketSubmenu.textContent = `В корзине пусто!`;
+                }
+            }
+            else{
 
+            }
+        })})
+        basket.addEventListener("click", function(){
+            if(basketSubmenuWrapper.classList.contains("active")){
+                basketSubmenuWrapper.classList.remove("active");
+            }
+            else{
+                basketSubmenuWrapper.classList.add("active");
+            }
+        })
         basketCount.addEventListener("DOMNodeInserted", function(){
-            console.log("OK");
             if(basketCount.textContent == '0'){
                 basketCount.classList.remove('active');
                 console.log("OK");

@@ -501,7 +501,7 @@ nav {
   display: flex;
 }
 
-.icon-cart:hover + .basket-submenu-wrapper {
+.basket-submenu-wrapper.active {
   display: block;
 }
 

@@ -308,7 +308,7 @@ nav{
 .basket-count.active{
     display: flex;
 }
-.icon-cart:hover +.basket-submenu-wrapper{
+.basket-submenu-wrapper.active{
     display: block;
 }
 .basket-submenu-wrapper{
