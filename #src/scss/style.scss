@@ -170,7 +170,7 @@ body{
     top: 70px;
     left: -100%;
     border-right: 1px solid gray;
-    z-index: 999;
+    z-index: 9999;
     background-color: #FFFFFF;
     transition: 0.4s;
 }
@@ -179,7 +179,9 @@ body{
 }
 .burger-submenu{
     padding: 0 15px 15px;
-    background-color: #FFFFFF;
+    background-color: #f8eaea;
+    height: calc(100vh - 70px);;
+    overflow-y: auto;
 }
 .mobile-header-menu-list{
     list-style: none;
@@ -192,6 +194,8 @@ body{
     padding: 10px 0 10px 5px;
 }
 .mobile-header-menu-list a{
+    display: block;
+    width: 100%;
     color: black;
 }
 .header-menu-list{
@@ -296,8 +300,7 @@ nav{
     stroke: red;
 }
 .mobile-header-input-search{
-    border: 1px solid black;
-    border-radius: 20px;
+    border: none;
     background: none;
     outline: none;
     float: left;

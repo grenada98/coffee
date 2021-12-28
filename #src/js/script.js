@@ -87,12 +87,14 @@ $(document).ready(function(){
                 mobileMenuPopup.classList.remove("active");
                 mobileMenu.classList.remove("active");
                 htmlTag.classList.remove("disabled");
+                console.log(1);
             }
             else{
                 burger.classList.add("active");
                 mobileMenuPopup.classList.add("active");
                 mobileMenu.classList.add("active");
                 htmlTag.classList.add("disabled");
+                console.log(2);
             }
         })
         mobileMenuPopup.addEventListener('click', function(){
@@ -101,11 +103,16 @@ $(document).ready(function(){
                 mobileMenuPopup.classList.remove("active");
                 mobileMenu.classList.remove("active");
                 htmlTag.classList.remove("disabled");
+                console.log(3);
             }
+        })
+        mobileMenu.addEventListener('click', function(event){
+            event.stopPropagation();
         })
         addField.forEach(function(el) {el.addEventListener('click', function (){
             const data = this.dataset.name;
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value + 1;
+            console.log(4);
         })})
         disField.forEach(function(el) {el.addEventListener('click', function (){
             const data = this.dataset.name;
@@ -113,15 +120,15 @@ $(document).ready(function(){
             if(document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value < 0){
                 document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = 0;
             }
+            console.log(5);
         })})
         buttonAdd.forEach(function (el){el.addEventListener('click', function(){
             const data = this.dataset.name;
             console.log(basketCount.textContent);
-            basketCountValue = basketCountValue + +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value
+            basketCountValue = basketCountValue + +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value;
             if(document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value>0){
-                basketCount.textContent = +basketCount.textContent + basketCountValue;
+                basketCount.textContent = basketCountValue;
             }
-            console.log("basketCountValue "+ basketCountValue);
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = 0;
             if(basketCountValue>0){
                 basketSubmenu.textContent = `В корзине ${basketCountValue} мешков с какао-бобами`;
@@ -130,6 +137,7 @@ $(document).ready(function(){
             else{
                 basketSubmenu.textContent = `В корзине пусто!`;
             }
+            console.log(6);
         })})
         inputCount.forEach(function (el){el.addEventListener('keydown', function(e){
             if(e.keyCode===13){
@@ -148,11 +156,13 @@ $(document).ready(function(){
             else{
 
             }
+            console.log(7);
         })})
         inputCount.forEach(function (el){el.addEventListener('click', function(){
             if(this.value == 0){
                 this.value = "";
             }
+            console.log(8);
         })})
         basket.addEventListener("click", function(){
             if(basketSubmenuWrapper.classList.contains("active")){
@@ -161,6 +171,7 @@ $(document).ready(function(){
             else{
                 basketSubmenuWrapper.classList.add("active");
             }
+            console.log(9);
         })
         basketCount.addEventListener("DOMNodeInserted", function(){
             if(basketCount.textContent == '0'){
@@ -171,16 +182,20 @@ $(document).ready(function(){
                 basketCount.classList.add('active');
                 console.log("NO");
             }
+            console.log(10);
         })
         inputSearch.addEventListener('keydown', function(e){
             if(e.keyCode===13){
                 inputSearch.blur();
             }
+            console.log(11);
         })
         inputSearch.addEventListener('mouseleave', function(){
             inputSearch.blur();
+            console.log(12);
         })
         linkInputSearch.addEventListener("click", function(){
             inputSearch.blur();
+            console.log(13);
         })
 })
