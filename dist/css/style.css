@@ -1097,19 +1097,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.social-contact-item:hover .icon-twitter {
-  fill: white;
-}
-
-.social-contact-item:hover .icon-facebook {
-  fill: white;
-}
-
-.social-contact-item:hover .icon-insta {
-  fill: white;
-}
-
-.social-contact-item:hover .icon-linkedin {
+.social-contact-item:hover .social-icon {
   fill: white;
 }
 
@@ -1131,24 +1119,9 @@ nav {
           align-items: center;
 }
 
-.icon-twitter {
-  width: 18.33px;
-  height: 14.95px;
-}
-
-.icon-facebook {
-  width: 9.17px;
-  height: 16.67px;
-}
-
-.icon-insta {
-  width: 16.67px;
-  height: 16.67px;
-}
-
-.icon-linkedin {
-  width: 16.67px;
-  height: 15.83px;
+.social-icon {
+  width: 18px;
+  height: 16px;
 }
 
 .update-news-wrapper {
@@ -1549,7 +1522,7 @@ footer {
   }
 
   .coffee-shop-wrapper {
-    padding: 50px 15px 50px 15px;
+    padding: 100px 15px 50px 15px;
   }
 
   .coffee-shop-product {
