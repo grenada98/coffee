@@ -81,6 +81,21 @@ $(document).ready(function(){
         const mobileMenu = document.querySelector(".burger-submenu-wrapper");
         const galleryPhotoes = Array.from(document.getElementsByClassName("coffee-gallery-columns"));
         const loadMore = document.querySelector(".load-gallery");
+        let countLoadPhotoes = 1;
+        for(let i = 1; i<galleryPhotoes.length; i++){
+            galleryPhotoes[i].classList.add("disabled");
+        }
+        loadMore.addEventListener('click', function(){
+            countLoadPhotoes +=1;
+            if(galleryPhotoes.length>=countLoadPhotoes){
+                for(let i=0; i<countLoadPhotoes; i++){
+                    galleryPhotoes[i].classList.remove("disabled");
+                }
+                if(galleryPhotoes.length==countLoadPhotoes){
+                    loadMore.classList.add("disabled");
+                }
+            }
+        })
         burger.addEventListener('click', function(){
             if(burger.classList.contains("active")){
                 burger.classList.remove("active");

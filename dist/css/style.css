@@ -928,6 +928,11 @@ nav {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  margin-bottom: 30px;
+}
+
+.coffee-gallery-columns.disabled {
+  display: none;
 }
 
 .column-gallery {
@@ -969,6 +974,10 @@ nav {
   background-color: #FFFFFF;
   outline: none;
   text-align: center;
+}
+
+.load-gallery.disabled {
+  display: none;
 }
 
 .contact-feedback-wrapper {

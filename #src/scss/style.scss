@@ -642,6 +642,10 @@ nav{
 .coffee-gallery-columns{
     display: flex;
     width: 100%;
+    margin-bottom: 30px;
+}
+.coffee-gallery-columns.disabled{
+    display: none;
 }
 .column-gallery{
     margin-top: 0;
@@ -677,6 +681,9 @@ nav{
     background-color: #FFFFFF;
     outline: none;
     text-align: center;
+}
+.load-gallery.disabled{
+    display: none;
 }
 
 
