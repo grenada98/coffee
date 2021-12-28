@@ -431,9 +431,7 @@ nav {
   padding: 10px;
   background-color: #FFFFFF;
   border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1658,6 +1656,12 @@ footer {
 }
 
 @media (max-width: 500px) {
+  .mobile-input-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .coffee-shop-list-products .slick-arrow.slick-prev {
     top: -55px;
     left: 30%;
