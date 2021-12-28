@@ -65,6 +65,7 @@ $(document).ready(function(){
             ]
           })
         const basket =document.querySelector(".icon-cart");
+        const htmlTag = document.querySelector("html");
         let basketCountValue = 0;
         const basketSubmenuWrapper = document.querySelector(".basket-submenu-wrapper");
         const basketSubmenu = document.querySelector(".basket-submenu");
@@ -76,17 +77,30 @@ $(document).ready(function(){
         const disField = Array.from(document.getElementsByClassName("count-dicrement"));
         const inputCount = Array.from(document.getElementsByClassName("input-count-coffee-product"));
         const burger = document.querySelector(".burger");
+        const mobileMenuPopup = document.querySelector(".popup-burger");
         const mobileMenu = document.querySelector(".burger-submenu-wrapper");
         const galleryPhotoes = Array.from(document.getElementsByClassName("coffee-gallery-columns"));
         const loadMore = document.querySelector(".load-gallery");
         burger.addEventListener('click', function(){
             if(burger.classList.contains("active")){
                 burger.classList.remove("active");
+                mobileMenuPopup.classList.remove("active");
                 mobileMenu.classList.remove("active");
+                htmlTag.classList.remove("disabled");
             }
             else{
                 burger.classList.add("active");
+                mobileMenuPopup.classList.add("active");
                 mobileMenu.classList.add("active");
+                htmlTag.classList.add("disabled");
+            }
+        })
+        mobileMenuPopup.addEventListener('click', function(){
+            if(mobileMenuPopup.classList.contains("active")){
+                burger.classList.remove("active");
+                mobileMenuPopup.classList.remove("active");
+                mobileMenu.classList.remove("active");
+                htmlTag.classList.remove("disabled");
             }
         })
         addField.forEach(function(el) {el.addEventListener('click', function (){

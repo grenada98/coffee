@@ -275,12 +275,29 @@ body {
   transition: 0.4s;
 }
 
+.popup-burger {
+  position: fixed;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 999;
+}
+
+.popup-burger.active {
+  width: 100%;
+}
+
 .burger-submenu-wrapper {
   display: block;
   width: 200px;
   position: fixed;
-  min-height: calc(100vh - 80.8px);
-  top: 80.8px;
+  min-height: calc(100vh - 70px);
+  top: 70px;
   left: -100%;
   border-right: 1px solid gray;
   z-index: 999;
@@ -1378,13 +1395,6 @@ footer {
   text-align: center;
 }
 
-@media (min-width: 850px) {
-  .burger-submenu-wrapper {
-    min-height: calc(100vh - 70px);
-    top: 70px;
-  }
-}
-
 @media (max-width: 1138px) {
   .input-count-coffee-product-wrapper {
     max-width: 100%;
@@ -1455,7 +1465,7 @@ footer {
 @media (max-width: 850px) {
   header {
     position: fixed;
-    z-index: 999;
+    z-index: 9999;
   }
 
   .header {
