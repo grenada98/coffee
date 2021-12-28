@@ -75,6 +75,20 @@ $(document).ready(function(){
         const addField = Array.from(document.getElementsByClassName("count-increment"));
         const disField = Array.from(document.getElementsByClassName("count-dicrement"));
         const inputCount = Array.from(document.getElementsByClassName("input-count-coffee-product"));
+        const burger = document.querySelector(".burger");
+        const mobileMenu = document.querySelector(".burger-submenu-wrapper");
+        const galleryPhotoes = Array.from(document.getElementsByClassName("coffee-gallery-columns"));
+        const loadMore = document.querySelector(".load-gallery");
+        burger.addEventListener('click', function(){
+            if(burger.classList.contains("active")){
+                burger.classList.remove("active");
+                mobileMenu.classList.remove("active");
+            }
+            else{
+                burger.classList.add("active");
+                mobileMenu.classList.add("active");
+            }
+        })
         addField.forEach(function(el) {el.addEventListener('click', function (){
             const data = this.dataset.name;
             document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value = +document.querySelector(`.input-count-coffee-product[data-name="${data}"]`).value + 1;

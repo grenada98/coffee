@@ -165,33 +165,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0 auto;
-  padding: 67px 15px;
-}
-
-.header-top {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.header-bottom {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 15px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  margin: 0 auto;
+  padding: 67px 15px;
 }
 
 .logo {
@@ -241,6 +219,19 @@ body {
   position: relative;
   margin-right: auto;
   margin-left: 20px;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.burger.active {
+  background-color: white;
+}
+
+.burger.active .burger-line,
+.burger.active::before,
+.burger.active::after {
+  background-color: #ff4b32;
 }
 
 .burger::before {
@@ -254,6 +245,9 @@ body {
   width: 50%;
   height: 2px;
   background-color: black;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .burger::after {
@@ -267,26 +261,37 @@ body {
   width: 50%;
   height: 2px;
   background-color: black;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .burger-line {
   width: 50%;
   height: 2px;
   background-color: black;
-}
-
-.burger:hover .burger-submenu-wrapper {
-  display: block;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .burger-submenu-wrapper {
-  display: none;
+  display: block;
   width: 200px;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  min-height: calc(100vh - 80.8px);
+  top: 80.8px;
+  left: -100%;
+  border-right: 1px solid gray;
+  z-index: 999;
+  background-color: #FFFFFF;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.burger-submenu-wrapper.active {
   left: 0;
-  padding-top: 10px;
-  border: 1px solid black;
 }
 
 .burger-submenu {
@@ -297,6 +302,13 @@ body {
 .mobile-header-menu-list {
   list-style: none;
   padding-left: 0;
+}
+
+.mobile-header-menu-item {
+  border-bottom: 1px solid gray;
+  color: #6b5a5a;
+  font-size: 24px;
+  padding: 10px 0 10px 5px;
 }
 
 .mobile-header-menu-list a {
@@ -415,20 +427,13 @@ nav {
   transition: 0.4s;
 }
 
-.mobile-input-div {
-  width: 49px;
-  height: 49px;
-  border-radius: 50%;
-  border: 1px solid #FFFFFF;
-  background: rgba(255, 255, 255, 0.4);
-  position: relative;
-}
-
 .mobile-input-header {
   padding: 10px;
   background-color: #FFFFFF;
   border-radius: 20px;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -437,7 +442,7 @@ nav {
           align-items: center;
 }
 
-.link-search {
+.mobile-link-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -450,12 +455,19 @@ nav {
   border-radius: 50%;
 }
 
-.mobile-input-header:hover > .mobile-header-input-search {
-  width: 100px;
+.icon-cart {
+  width: 52.94px;
+  height: 46.2px;
+  margin-left: 38px;
+}
+
+.icon-cart:hover {
+  stroke: red;
 }
 
 .mobile-header-input-search {
-  border: none;
+  border: 1px solid black;
+  border-radius: 20px;
   background: none;
   outline: none;
   float: left;
@@ -463,17 +475,11 @@ nav {
   color: black;
   font-size: 16px;
   line-height: 20px;
-  width: 0;
+  width: 150px;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-}
-
-.icon-cart {
-  width: 52.94px;
-  height: 46.2px;
-  margin-left: 38px;
-  stroke: #FFFFFF;
+  padding-left: 10px;
 }
 
 .basket-count {
@@ -646,6 +652,7 @@ nav {
 
 .input-count-coffee-product {
   width: 100%;
+  height: 100%;
   font-size: 24px;
   font-weight: 500;
   line-height: 31.2px;
@@ -654,7 +661,7 @@ nav {
   outline: none;
   border-radius: 2px;
   border: 1px solid #000000;
-  text-align: center;
+  text-align: start;
 }
 
 .input-count-coffee-product::-webkit-outer-spin-button,
@@ -744,9 +751,17 @@ nav {
   color: #FFFFFF;
   padding: 15px 30px 15px 30px;
   background-color: #FF4B32;
+  border: 2px solid #FF4B32;
   border-radius: 5px;
-  border: none;
   cursor: pointer;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.button-coffee-product-order:hover {
+  background-color: #FFFFFF;
+  color: black;
 }
 
 .coffee-shop-list-products .slick-list {
@@ -1075,6 +1090,29 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 40px;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.social-contact-item:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.social-contact-item:hover .icon-twitter {
+  fill: white;
+}
+
+.social-contact-item:hover .icon-facebook {
+  fill: white;
+}
+
+.social-contact-item:hover .icon-insta {
+  fill: white;
+}
+
+.social-contact-item:hover .icon-linkedin {
+  fill: white;
 }
 
 .social-contact-item:last-child {
@@ -1369,6 +1407,12 @@ footer {
   text-align: center;
 }
 
+@media (min-width: 850px) {
+  .burger-submenu-wrapper.active {
+    left: -100%;
+  }
+}
+
 @media (max-width: 1138px) {
   .input-count-coffee-product-wrapper {
     max-width: 100%;
@@ -1437,6 +1481,16 @@ footer {
 }
 
 @media (max-width: 850px) {
+  header {
+    position: fixed;
+    z-index: 999;
+  }
+
+  .header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   .coffee-shop-list-products .slick-arrow.slick-prev {
     top: -55px;
     left: 40%;
@@ -1470,6 +1524,11 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .burger-submenu-wrapper {
+    min-height: calc(100vh - 70px);
+    top: 70px;
   }
 }
 
@@ -1613,24 +1672,12 @@ footer {
     display: none;
   }
 
-  .mobile-input-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-right: 8px;
-  }
-
   .item-gallery {
     margin-bottom: 5px;
   }
 
   .column-gallery {
     margin-right: 10px;
-  }
-
-  .burger-submenu-wrapper {
-    left: auto;
-    right: 0;
   }
 }
 
