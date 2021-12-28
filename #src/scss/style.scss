@@ -1044,8 +1044,9 @@ footer{
     }
 }
 @media (min-width: 850px){
-    .burger-submenu-wrapper.active{
-        left: -100%;
+    .burger-submenu-wrapper{
+        min-height: calc(100vh - 70px);
+        top: 70px;
     }
 }
 @media (max-width: 850px){
@@ -1056,6 +1057,12 @@ footer{
     .header{
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    nav{
+        display: none;
+    }
+    .burger{
+        display: flex;
     }
     .coffee-shop-list-products .slick-arrow.slick-prev{
         top: -55px;
@@ -1074,18 +1081,6 @@ footer{
     .coffee-shop-subtitle{
         text-align: center;
         margin: 20px auto 0;
-    }
-}
-@media (max-width: 837px){
-    nav{
-        display: none;
-    }
-    .burger{
-        display: flex;
-    }
-    .burger-submenu-wrapper{
-        min-height: calc(100vh - 70px);
-        top: 70px;
     }
 }
 @media(max-width: 800px){
