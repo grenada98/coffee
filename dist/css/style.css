@@ -534,14 +534,14 @@ nav {
   top: 100%;
   right: 0;
   padding-top: 10px;
-  width: 100px;
+  width: 150px;
   display: none;
 }
 
 .basket-submenu {
   width: 100%;
-  background-color: white;
-  padding: 0 15px 15px;
+  background-color: #c7b5b5;
+  padding: 15px 15px 15px;
   font-size: 16px;
   color: black;
   text-align: center;
